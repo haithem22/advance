@@ -1,0 +1,35 @@
+extends layout
+block content
+ .container
+  .jumbotron
+   each general , i in generals
+    .jumbchild
+     if categories
+      ul
+        h3 #{general.title}
+       each category , i in categories
+        if category.general===general.title
+          li#cats
+           table
+             tr
+               td
+                 .cat-icon
+               td
+                 a(href='/forum'+'/'+id+'/'+category.title)
+                   h6  #{category.title}
+
+
+    
+
+  style.
+    body {
+    color:white;
+    background-color: #eeeeee;
+    background-image: url("http://www.vessay.com/images/bg/background.jpg");
+    background-size: 1600px auto;
+    position:relative;
+    }
+    h3{
+    color:#000000;
+    }
+

@@ -1,0 +1,22 @@
+extends layout
+block content
+ .container
+  each notification, i in notifications
+   if notification.accepted!=='true'
+    p request of mentoring from #{notification.student_name} #{notification.field} 
+    form(method='post' , action='/notif/'+notification.id, enctype='multipart/form-data' )
+     input(type='hidden',name='id',value = notification.id)
+     input.btn.btn-default(name='submit',type='submit',value='accept') 
+     input.btn.btn-default(name='submit',type='submit',value='refuse') 
+  each Notification, i in Notifications
+   if Notification.accepted==='true'
+    p request of mentoring accepted from #{Notification.mentor}  
+    form(method='post' , action='/notif/'+Notification.id, enctype='multipart/form-data' )
+     input(type='hidden',name='id',value = Notification.id)
+     input.btn.btn-default(name='submit',type='submit',value='OK')
+  each report , i in reports 
+   p this #{report.type} was reported by #{report.username}
+   if report.type=="post" 
+    a.btn.btn-default(href='/forum/'+user.id+'/myposts/'+report.id) view #{report.type}
+   if report.type=="tutorial" 
+    a.btn.btn-default(href='/mooc/'+user.id+'/mytutorials/'+report.id) view #{report.type}

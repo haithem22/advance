@@ -1,0 +1,47 @@
+
+extends layout
+block content
+
+ if errors
+  ul.errors
+   each error, i in errors
+    li #{error.msg}
+ .container
+
+  form(method='post' , action='/forum/'+id+'/add', enctype='multipart/form-data' )
+    h1 Add topic
+    .form-group.col-lg-6.col-md-offset-4
+     label Title:
+     input.form-control(name='title' , type='text')
+    .form-group.col-lg-6.col-md-offset-4
+     label Section:
+     select.form-control(name='category')
+      if categories
+
+       each category , i in categories
+          option(value='#{category.title}') #{category.title}
+    br
+    .form-group.col-lg-10.col-md-offset-2
+     label body:
+     textarea(name='body', style='height:600px;width:100%;')
+
+    .form-group.col-lg-10.col-md-offset-2
+      input.btn.btn-default(name='submit',type='submit',value='Add topic')
+
+    // Include jQuery, can be omitted if already included
+  script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+  // Include the default SCEditor theme
+  link(rel='stylesheet', href='/public/minified/themes/default.min.css', type='text/css', media='all')
+  // Include SCEditor's JS
+  script(type='text/javascript', src='/public/minified/jquery.sceditor.bbcode.min.js')
+
+  script.
+    $(function() {
+    // Convert all textareas to SCEditor instances
+    // Change the "textarea" to convert specific textareas
+    $("textarea").sceditor({
+    // Load the BBCode plugin
+    plugins: "bbcode",
+    // Use jquery.sceditor.default.min.css to style the content
+    style: "/minified/jquery.sceditor.default.min.css" }); });
+

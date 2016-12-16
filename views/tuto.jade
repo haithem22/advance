@@ -1,0 +1,83 @@
+
+extends layout
+block content
+  .container
+    h1 #{tutorial.title}
+    h2 #{tutorial.description}
+    p.meta
+      font(color="red") *
+      span by #{tutorial.instructor}
+    .container
+      if tutorial.lessons
+              div.row
+                  each lesson , i in tutorial.lessons
+                   div.col-xs-6.col-md-3
+                     div.thumbnail
+                       h3
+                           a(href='/mooc/'+id+'/mytutorials/'+tutorial.id+'/lessons/'+lesson.lesson_title) #{lesson.lesson_title}
+                       h3 #{lesson.lesson_body}
+      form(method='post' , action='/mooc/'+id+'/mytutorials/'+tutorial.id, enctype='multipart/form-data' )
+        if !(addlesson) && (tutorial.instructor === username)
+          div.span7.text-center
+            input.btn(type='submit',name='submit', value='Add Lesson')
+        if addlesson
+          div(align='left')
+            .form-group.col-lg-6.col-md-offset-4
+             label Title
+             input.form-control(type='text', name='lesson_title',placeholder='enter title')
+            .form-group.col-lg-6.col-md-offset-4
+             label Number
+             input.form-control(type='text', name='lesson_number',placeholder='enter number')
+            .form-group.col-lg-6.col-md-offset-4
+             label Description
+             input.form-control(type='text', name='lesson_body',placeholder='enter description')
+            .form-group.col-lg-6.col-md-offset-4
+             label Video
+             input.form-control(type='file', name='lesson_video',placeholder='enter name')
+            .form-group.col-lg-6.col-md-offset-4
+             input(type='submit',name= 'submit',value='Add')
+    br
+    hr
+    if commentcours
+     .comments
+      h3 Comments
+      each comment , i in commentcours
+       .comment
+        p.comment-name By #{comment.username}
+        p.comment-text #{comment.coment}
+    h4 Add Comment
+    if errors
+     ul.errors
+     each error , i in errors
+      li.alert.alert-danger #{error.msg}
+    form(method='post',action='/mooc/'+id+'/mytutorials/'+tutorial.id, enctype="multipart/form-data" )
+     .form-group
+      input.form-control(name='coment' , type='text')
+      input.btn.btn-default(name='submit',value='comment',type='submit')
+      input.btn.btn-default(name='submit',value='report',type='submit')
+  style.
+   body {
+   font-family:"helvetica";
+   font-size:18px;
+   background-image: url("http://www.vessay.com/images/bg/background.jpg");
+   background-size: 1600px auto;
+   position:relative;
+   text-align:center;
+   }
+   .jumbotron{
+   display:inline;
+   }
+   .thumbnail{
+   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);padding-top:30px;padding-bottom:30px;margin-bottom:30px;color:inherit;background-color:#eee;
+   }
+   h3{
+   padding-top:10px;
+   font-weight:bold;
+   text-align:center;
+   }
+   .comments{
+   font:18px;
+   font-style:italic;
+   border:0px;
+   background-color:#eee;
+   }

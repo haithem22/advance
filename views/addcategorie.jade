@@ -1,0 +1,33 @@
+extends layout
+block content
+ if errors 
+   ul.errors 
+    each error, i in errors
+     li #{error.msg} 
+ .container 
+  form(method='post' , action='/forum/'+id+'/addcategory', enctype='multipart/form-data' )
+   h1 Add a Category
+   .form-group.col-lg-6.col-md-offset-4
+    label Title:
+    input.form-control(name='title' , type='text')
+
+   .form-group.col-lg-6.col-md-offset-4
+    label General Category:
+    select.form-control(name="general")
+     if generalcats
+      each generalcat , i in generalcats
+       option(value=generalcat.title ) #{generalcat.title}
+   .form-group.col-lg-6.col-md-offset-4   
+    input.btn.btn-default(name='submit',type='submit',value='Add') 
+  style.
+    body {
+    color:black;
+    background-image: url("http://wallpaper.zone/img/143151.jpg");
+    width:100%;
+    height:100;
+    position:relative;
+    }
+    h1{
+    text-align:center;
+    }
+

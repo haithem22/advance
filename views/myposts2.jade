@@ -1,0 +1,85 @@
+extends layout
+block content
+  #{title}
+  .post
+
+    h1.postTitle #{post.title}
+    p.meta
+      font(color="red") *
+      span by #{post.author}
+    if !modify
+      .postContent
+        .topic
+          !=post.body
+        br
+        hr
+        if comments
+          .comments
+            h3 Comments
+            each comment , i in comments
+              .comment
+                p.comment-name By #{comment.username}
+                p.comment-text #{comment.coment}
+      h4 Add Comment
+      if errors
+       ul.errors
+        each error , i in errors
+         li.alert.alert-danger #{error.msg}
+      form(method='post',action='/forum/'+id+'/myposts/'+post._id, enctype="multipart/form-data" )
+        .form-group
+          input.form-control(name='comment' , type='text')
+          input.btn.btn-default.btn-info(name='submit',type='submit',value='Comment')
+        if post.author === username
+          input.btn.btn-default.btn-info(name='submit',type='submit',value='Comment')
+          input.btn.btn-default.btn-success(name='submit',value='Modify',type='submit')
+          input.btn.btn-default.btn-danger(name='submit',value='Delete',type='submit')
+        else
+          input.btn.btn-default.btn-danger(name='submit',value='report',type='submit')
+
+    else
+
+     // Include jQuery, can be omitted if already included
+     script(type='text/javascript', src='//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js')
+     // Include the default SCEditor theme
+     link(rel='stylesheet', href='/public/minified/themes/default.min.css', type='text/css', media='all')
+     // Include SCEditor's JS
+     script(type='text/javascript', src='/public/minified/jquery.sceditor.bbcode.min.js')
+
+     script.
+      $(function() {
+      // Convert all textareas to SCEditor instances
+      // Change the "textarea" to convert specific textareas
+      $("textarea").sceditor({
+      // Load the BBCode plugin
+      plugins: "bbcode",
+      // Use jquery.sceditor.default.min.css to style the content
+      style: "/minified/jquery.sceditor.default.min.css" }); });
+     form(method='post',action='/forum/'+id+'/myposts/'+post._id, enctype="multipart/form-data" )
+      .form-group
+       textarea(name='newBody', style='height:600px;width:100%;')
+        !=post.bbody
+       input.btn.btn-default(name='submit',value='Save',type='submit')
+       input.btn.btn-default.btn-primary(name='submit',value='Cancel',type='submit')
+      br
+      hr
+      if comments
+        h3 comments
+        each comment , i in comments
+          h1 fhjk
+          .comment
+            p.comment-name #{comment.username}
+
+            p.comment-text #{comment.coment}
+
+  style.
+    h3{
+    padding-top:10px;
+    font-weight:bold;
+    text-align:center;
+    }
+    .comments{
+    font:18px;
+    font-style:italic;
+    border:0px;
+    background-color:#eee;
+    }

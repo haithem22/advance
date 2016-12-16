@@ -1,0 +1,13 @@
+extends layout
+block content
+	.container
+		if tutos
+			.row
+				each tutorial , i in tutos
+					.col-md-4
+						h2 #{tutorial.title}
+							p
+								| #{tutorial.description}
+							p
+								a.btn.btn-default(href='/mooc/'+id+'/mytutorials/'+tutorial.id, role='button') Show lessons »
+							hr

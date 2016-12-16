@@ -1,0 +1,22 @@
+extends layout
+block content
+ if errors 
+   ul.errors 
+    each error, i in errors
+     li #{error.msg} 
+ .container 
+  form(method='post' , action='/forum/'+id+'/addgeneralcategory', enctype='multipart/form-data' )
+    h1 Register
+    .form-group
+     label Title:
+     input.form-control(name='title' , type='text')
+     
+    .form-group
+     label moderator:
+     select.form-control(name="moderator")
+      if users
+       each user , i in users
+        option(value=user.username ) #{user.username}
+    
+   
+    input.btn.btn-default(name='submit',type='submit',value='add') 

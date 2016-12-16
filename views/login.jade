@@ -1,0 +1,29 @@
+extends layout
+
+block content
+ if erors
+   ul.errors
+    li.alert.alert-danger #{erors}
+ .container
+  form(method='post' , action='/login', enctype='multipart/form-data' )
+   h1 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Please log into your account
+   .form-group.col-lg-6.col-md-offset-4
+    label Username
+    input.form-control(type='text', name='username',placeholder='enter name')
+   .form-group.col-lg-6.col-md-offset-4
+    label Password
+    input.form-control(type='password', name='password',placeholder='enter name')
+   .form-group.col-lg-6.col-md-offset-4
+    button.btn.btn-default.btn-primary(type='submit') Log in
+
+  style.
+    body {
+    color:black;
+    background-image: url("http://wallpaper.zone/img/143151.jpg");
+    width:100%;
+    height:100;
+    position:relative;
+    }
+    h1{
+    text-align:center;
+    }

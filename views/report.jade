@@ -1,0 +1,33 @@
+extends layout
+block content  
+    .container 
+      if title === "reportc"
+        form(method='post' , action='/mooc/'+id+'/mytutorials/'+idt+'/report', enctype='multipart/form-data' )
+         h1 Add a Category
+         
+         .form-group.col-lg-6.col-md-offset-4
+          label General Category:
+          select.form-control(name="content")
+        
+           option(value="abuse of language" selected) abuse of language 
+           option(value="harrassemment") harrassemment 
+           option(value="irrelevant topic") irrelevant topic
+           option(value="wrong section") wrong section 
+
+         .form-group.col-lg-6.col-md-offset-4
+          input.btn.btn-default.btn-success(name='submit',value='send',type='submit')
+      else
+        form(method='post' , action='/forum/'+id+'/myposts/'+idp+'/report', enctype='multipart/form-data' )
+           h1 Add a Category
+         
+         .form-group.col-lg-6.col-md-offset-4
+          label General Category:
+          select.form-control(name="content")
+        
+           option(value="abuse of language" selected) abuse of language 
+           option(value="harrassemment") harrassemment 
+           option(value="irrelevant topic") irrelevant topic
+           option(value="wrong section") wrong section 
+
+         .form-group.col-lg-6.col-md-offset-4
+          input.btn.btn-default.btn-success(name='submit',value='send',type='submit')

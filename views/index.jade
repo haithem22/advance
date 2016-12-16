@@ -1,0 +1,210 @@
+extends layout
+
+block content
+
+
+
+  meta(charset='utf-8')
+  title ADVANCE & community platform
+  // Behavioral Meta Data
+  meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+  // Core Meta Data
+  meta(name='author', content='Advance TEAM')
+  meta(name='description', content='This is advance personal platform')
+  // Favicon
+  link(rel='shortcut icon', href='/public/favicon.png', type='image/png')
+  // Apple Touch Icons
+  link(rel='apple-touch-icon-precomposed', sizes='144x144', href='apple-touch-icon-144x144-precomposed.png')
+  link(rel='apple-touch-icon-precomposed', sizes='114x114', href='apple-touch-icon-114x114-precomposed.png')
+  link(rel='apple-touch-icon-precomposed', sizes='72x72', href='apple-touch-icon-72x72-precomposed.png')
+  link(rel='apple-touch-icon-precomposed', sizes='57x57', href='apple-touch-icon-57x57-precomposed.png')
+  //if lt IE 9
+    script(src='http://html5shim.googlecode.com/svn/trunk/html5.js')
+  // Fonts
+  link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css')
+  link(href='https://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet', type='text/css')
+  link(href='https://fonts.googleapis.com/css?family=Cardo', rel='stylesheet', type='text/css')
+  // Styles
+  link(rel='stylesheet', type='text/css', href='/public/css/loader.css')
+  link(rel='stylesheet', type='text/css', href='/public/css/framework.css')
+  link(rel='stylesheet', type='text/css', href='/public/css/style.css')
+  // Colors
+  link(rel='stylesheet', type='text/css', href='/public/css/colors/cyan.css', title='cyan', media='screen')
+  // <link rel="stylesheet" type="text/css" href="/public/css/colors/red.css" title="red" media="screen">
+  // <link rel="stylesheet" type="text/css" href="/public/css/colors/green.css" title="green" media="screen">
+  // <link rel="stylesheet" type="text/css" href="/public/css/colors/pink.css" title="pink" media="screen">
+  // <link rel="stylesheet" type="text/css" href="/public/css/colors/yellow.css" title="yellow" media="screen">
+  //if lt IE 9
+    link(rel='stylesheet', type='text/css', href='/public/css/ie.css')
+  // Javascript
+  script(src='/public/js/modernizr.js')
+  script(src='/public/js/jquery.js')
+
+  section#hero
+    ul#scene.scene(data-friction-x='0.1', data-friction-y='0.1', data-scalar-x='25', data-scalar-y='15')
+      li.layer(data-depth='0.00')
+      // BG
+      li.layer(data-depth='0.10')
+        .background(data-0='transform: translate3d(0px, 0px, 0px);', data-top-bottom='transform: translate3d(0px, 300%, 0px);')
+      li.layer(data-depth='0.15')
+        .triangles
+      li.layer(data-depth='0.25')
+        .sphere(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/sphere.png', alt='sphere')
+      // Hero
+      li.layer(data-depth='0.20')
+        .title(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img.has-retina(src='/public/images/logo.png', alt='Opia')
+          span.line
+      li.layer(data-depth='0.30')
+        .hero-content(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          h1 Welcome
+          p.sub-title We are working hard to bring advancers a unique experience.
+      // Flakes
+      li.layer(data-depth='0.40')
+        .depth-1.flake1(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth1/flakes1.png', alt='flake')
+        .depth-1.flake2(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth1/flakes2.png', alt='flake')
+        .depth-1.flake3(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth1/flakes3.png', alt='flake')
+        .depth-1.flake4(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth1/flakes4.png', alt='flake')
+      li.layer(data-depth='0.50')
+        .depth-2.flake1(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth2/flakes1.png', alt='flake')
+        .depth-2.flake2(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth2/flakes2.png', alt='flake')
+      li.layer(data-depth='0.60')
+        .depth-3.flake1(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth3/flakes1.png', alt='flake')
+        .depth-3.flake2(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth3/flakes2.png', alt='flake')
+        .depth-3.flake3(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth3/flakes3.png', alt='flake')
+        .depth-3.flake4(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth3/flakes4.png', alt='flake')
+      li.layer(data-depth='0.80')
+        .depth-4(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth4/flakes.png', alt='flake')
+      li.layer(data-depth='1.00')
+        .depth-5(data-0='opacity: 1;', data-top-bottom='opacity: 0;')
+          img(src='/public/images/flakes/depth5/flakes.png', alt='flake')
+    a#action(href='#intro')
+  section#intro.container.center.padded
+    // Intro
+    .row
+      .col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+        h3 About Us
+        span.line
+        h2 ADVANCE community.
+        p
+          | Advance is an inter-connected community working for the development of Tunisia
+          br
+          font(color='#f00') *
+          | Members only
+  section.container.padded-bottom.center-mobile.relative.list
+    // Blocks
+    .row
+      .block.col-xs-12.col-sm-5
+        i.icon.fa.fa-user-secret
+        h3
+          | Find a mentor
+          font(color='#f00') *
+        p
+          | Our mission is to fuel the quantity and quality of mentoring relationships for Advancers' young people and to close the mentoring gap.
+      .block.col-xs-12.col-sm-5.col-sm-offset-2
+        i.icon.fa.fa-file
+        h3
+          | Learn something
+          font(color='#f00') *
+        p
+          | We've got your front end and back end needs covered. We're always looking for strategies to make your brand's needs fit with today's development languages.
+    span.separator
+    // Blocks
+    .row
+      .block.col-xs-12.col-sm-5
+        i.icon.fa.fa-github-alt
+        h3
+          | The forum
+          font(color='#f00') *
+        p
+          | Yep, say cheese. Finding ways to help tell your story through photography is a powerful tool to make your branded content stand out from the rest.
+      .col-xs-12.col-sm-5.col-sm-offset-2
+        i.icon.fa.fa-headphones
+        h3 Our events
+        p
+          | This a powerful outlet that constantly gets overlooked. We strive to figure out ways to help your audience grow through all social platforms.
+  section.full.padded-top.center.dark(style='background-image: url(/public/images/dark-image.jpg);')
+    .container
+      // Intro
+      .row
+        .col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+          h3 Developers
+          span.line
+          h2 Advancers who created this website.
+      // Folio pt.1
+      .row
+        .col-xs-12.padded-top
+          ul.folio-list
+            li
+              a.lightbox(href='/public/images/portfolio/mounir.jpg', title='Mounir Dhahri.')
+                img(src='/public/images/portfolio/mounir.jpg', alt='thumbnail')
+            li
+              a.lightbox(href='/public/images/portfolio/afif.jpg', title='Afif Boughanmi.')
+                img(src='/public/images/portfolio/afif.jpg', alt='thumbnail')
+            li
+              a.lightbox(href='/public/images/portfolio/haithem.jpg', title='Haithem Amri.')
+                img(src='/public/images/portfolio/haithem.jpg', alt='thumbnail')
+  section.full.padded-bottom.center(style='background-image: url(/public/images/light-image.jpg);')
+    .container
+      section.container.padded.center
+        // Subscribe
+        .row
+          .col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+            h3 contact
+            span.line
+            p Ask us anything, we promise we will answer as soon as possible.
+            form#contact(name='contact', method='post', novalidate='novalidate')
+              fieldset
+                label(for='name') Name
+                input#name(type='text', name='name')
+                label(for='email') Email
+                input#email(type='email', name='email')
+                label(for='message') Message
+                textarea#message(name='message')
+                input#submit(type='submit', name='submit', value='Send Email')
+            #success
+              p Your message was sent successfully! I will be in touch as soon as I can.
+            #error
+              p Something went wrong, try refreshing and submitting the form again.
+        // Footer
+        .row.padded
+          .col-xs-12.col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-2
+            span.line.no-accent
+            ul.social-list.padded
+              li
+                a(href='#') Twitter
+              li
+                a(href='#') Facebook
+              li
+                a(href='#') Github
+            p.copyright
+              | © 2016 Advance community. All rights lefted.
+              br
+              | Make something you love.
+      // Begin Pageloader
+      #pageloader
+        // Content
+        .pageloader-content
+          h4 Loading...
+          span.progress
+        // END Content
+      // END Pageloader
+      // Javascript
+      script(src='/public/js/loader.js')
+      script(src='/public/js/parallax.js')
+      script(src='/public/js/plugins.js')
+      script(src='/public/js/main.js')
+    style( h3{color:#000;})
+

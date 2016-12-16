@@ -1,0 +1,34 @@
+extends layout
+block content
+  .container
+    .container
+      h2 Welcome To our learning platform !
+      p
+        | Hey advancer ! want to learn something new ?
+      p
+        //a.btn.btn-primary.btn-lg(href='#', role='button') Learn more »
+    .container
+      // Example row of columns
+      if tutorials
+        .jumbotron
+          .row
+           each tutorial , i in tutorials
+            .col-md-4
+              h2 #{tutorial.title}
+              p
+                .cont-tuto
+                  | #{tutorial.description}
+              p
+                a.btn.btn-default(href='/mooc/'+id+'/mytutorials/'+tutorial.id, role='button') View details »
+      hr
+      footer
+        p © 2016 Advance community.
+    // /container
+  style.
+   body {
+   font-family:"helvetica";
+   font-size:18px;
+   background-image: url("http://www.vessay.com/images/bg/background.jpg");
+   background-size: 1600px auto;
+   position:relative;
+   }

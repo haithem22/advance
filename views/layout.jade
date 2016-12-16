@@ -1,0 +1,100 @@
+doctype html
+html
+  head
+
+
+    title  #{title}
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+
+    // Bootstrap core CSS
+    link(href='http://vjs.zencdn.net/5.9.2/video-js.css', rel='stylesheet')
+    link(href='/public/stylesheets/bootstrap.min.css', rel='stylesheet')
+    link(href='/public/stylesheets/style.css', rel='stylesheet')
+    // IE10 viewport hack for Surface/desktop Windows 8 bug
+    link(href='/public/stylesheets/style.css', rel='stylesheet')
+    //JavaScript
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js')
+    script(src='/public/javascripts/bootstrap.js')
+    script(src='http://vjs.zencdn.net/5.9.2/video.js')
+
+  body
+
+     nav.navbar.navbar-default.navbar-fixed-top.navbar-custom
+
+      .container
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#navbar', aria-expanded='false', aria-controls='navbar')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+
+          if (user== undefined || user.numberOfNotification==0)
+            a.navbar-brand(href='/notif/'+id) Advance
+            
+            
+            
+          else
+            a.navbar-brand(href='/notif/'+id) 
+                span.red Advance(#{user.numberOfNotification})
+            
+
+        #navbar.collapse.navbar-collapse
+          ul.nav.navbar-nav
+            if  !(id)
+             li(class= (title ==='Members' ? 'active' : ''))
+
+               a(href='/') Home
+
+             li(class= (title ==='Register' ? 'active' : ''))
+               a(href='/signup') Signup
+             li(class= (title ==='Login' ? 'active' : ''))
+               a(href='/login') Log in
+            if id || title=== 'Forum' || title=== 'mooc'|| title==="ban"
+             li(class= (title ==='Forum' ? 'active' : ''))
+               a(href='/forum'+'/'+id) Forum
+             li(class= (title ==='mooc' ? 'active' : ''))
+             
+
+               a(href='/mooc'+'/'+id) Tutorials
+             li
+               a(href= '/mooc/' + id + '/mentoring') Request a Mentor
+             li(class= (title ==='ban' ? 'active' : ''))
+
+               a(href= '/ban') ban
+
+          ul.nav.navbar-nav.navbar-right
+             if title === 'mooc' || (title === 'addtutorial') || (title === 'My Tutorials')
+              
+
+              li
+               a(href= '/mooc/' + id + '/addtutorial') Add Tutorial
+              li
+               a(href= '/mooc/' + id + '/mytutorials') My Tutorials
+             if title === 'Forum' || title === 'addpost' || title === 'my posts' || title === 'addcategory'||title === 'generalcategory'
+
+              li
+               a(href='/forum/'+id+'/add') Post an Article
+              li
+               a(href='/forum/'+id+'/myposts') My Articles
+              li
+
+               a(href='/forum/'+id+'/addcategory') Add Category
+              if id==="573bc3c72fdc6f8cdaefda36"
+               li
+                a(href='/forum/'+id+'/addgeneralcategory') add generalcategory
+
+             if id
+              li
+               a(href='/logout') Logout
+     !=message
+     .container
+      block content
+  style.
+    body {
+    background-image: url("http://www.vessay.com/images/bg/background.jpg");
+    background-size: 1600px auto;
+    position:relative;
+    }

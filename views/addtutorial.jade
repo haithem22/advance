@@ -1,0 +1,28 @@
+extends layout
+block content
+ if errors 
+   ul.errors 
+    each error, i in errors
+     li.alert.alert-danger #{error.msg}
+ .container 
+  form(method='post' , action='/mooc/'+id+'/addtutorial', enctype='multipart/form-data' )
+    h1 Add a Tutorial
+    .form-group.col-lg-6.col-md-offset-4
+     label Title
+     input.form-control(type='text', name='title',placeholder='enter name')
+    .form-group.col-lg-6.col-md-offset-4
+     label Description
+     textarea(name='description', style='height:600px;width:100%;')
+    .form-group.col-lg-6.col-md-offset-4    
+        input.btn.btn-default(name='submit',type='submit',value='ADD') 
+  style.
+    body {
+    color:black;
+    background-image: url("http://wallpaper.zone/img/143151.jpg");
+    width:100%;
+    height:100;
+    position:relative;
+    }
+    h1{
+    text-align:center;
+    }
